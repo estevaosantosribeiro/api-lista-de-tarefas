@@ -177,3 +177,170 @@ curl "https://api-todolist-rho.vercel.app/verificarusuario?email=joao@example.co
 ```bash
 curl "https://api-todolist-rho.vercel.app/login?email=joao@example.com&password=123456"
 ```
+
+# Exemplos de Respostas da API de Lista de Tarefas
+
+Abaixo estão exemplos de respostas para cada endpoint da API.
+
+## Endpoints de Tarefas
+
+### `GET /`
+
+- **Descrição**: Retorna todas as tarefas de um usuário específico.
+- **Exemplo de Requisição**: `/?id=1`
+- **Resposta de Sucesso**:
+    ```json
+    [
+        {
+            "id": 1,
+            "title": "Tarefa exemplo",
+            "status": "pendente",
+            "creatorId": 1
+        },
+        {
+            "id": 2,
+            "title": "Outra tarefa",
+            "status": "completa",
+            "creatorId": 1
+        }
+    ]
+    ```
+
+### `GET /task`
+
+- **Descrição**: Retorna uma tarefa específica com base no ID.
+- **Exemplo de Requisição**: `/task?id=1`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "id": 1,
+        "title": "Tarefa exemplo",
+        "status": "pendente",
+        "creatorId": 1
+    }
+    ```
+
+### `GET /criartarefa`
+
+- **Descrição**: Cria uma nova tarefa.
+- **Exemplo de Requisição**: `/criartarefa?title=Nova Tarefa&id=1`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "title": "Nova Tarefa",
+        "id": 1
+    }
+    ```
+
+### `GET /editartask`
+
+- **Descrição**: Atualiza o status de uma tarefa específica.
+- **Exemplo de Requisição**: `/editartask?id=1&status=completa`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "id": 1,
+        "title": "Tarefa exemplo",
+        "status": "completa",
+        "creatorId": 1
+    }
+    ```
+
+### `GET /editartitle`
+
+- **Descrição**: Atualiza o título de uma tarefa específica.
+- **Exemplo de Requisição**: `/editartitle?id=1&title=Tarefa Atualizada`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "id": 1,
+        "title": "Tarefa Atualizada",
+        "status": "pendente",
+        "creatorId": 1
+    }
+    ```
+
+### `GET /deletartask`
+
+- **Descrição**: Exclui uma tarefa específica.
+- **Exemplo de Requisição**: `/deletartask?id=1`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "id": 1,
+        "title": "Tarefa exemplo",
+        "status": "pendente",
+        "creatorId": 1
+    }
+    ```
+
+## Endpoints de Usuários
+
+### `GET /verificarusuario`
+
+- **Descrição**: Verifica se um usuário já existe com base no email fornecido.
+- **Exemplo de Requisição**: `/verificarusuario?email=exemplo@dominio.com`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "success": true,
+        "message": "E-mail disponível"
+    }
+    ```
+- **Resposta de Erro (usuário já existe)**:
+    ```json
+    {
+        "success": false,
+        "message": "Este usuário já existe"
+    }
+    ```
+
+### `GET /criarusuario`
+
+- **Descrição**: Cria um novo usuário com nome, email e senha.
+- **Exemplo de Requisição**: `/criarusuario?name=João&email=joao@dominio.com&password=12345`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "success": true,
+        "message": "Usuário criado com sucesso.",
+        "id": 1,
+        "user": {
+            "name": "João",
+            "email": "joao@dominio.com",
+            "password": "12345"
+        }
+    }
+    ```
+
+### `GET /login`
+
+- **Descrição**: Autentica um usuário com email e senha.
+- **Exemplo de Requisição**: `/login?email=joao@dominio.com&password=12345`
+- **Resposta de Sucesso**:
+    ```json
+    {
+        "success": true,
+        "message": "Usuário logado com sucesso.",
+        "id": 1,
+        "user": {
+            "id": 1,
+            "name": "João",
+            "email": "joao@dominio.com",
+            "password": "12345"
+        }
+    }
+    ```
+- **Resposta de Erro (credenciais inválidas)**:
+    ```json
+    {
+        "success": false,
+        "message": "E-mail ou senha incorretos!"
+    }
+    ```
+
+
+---
+
+Esses são os exemplos de respostas para os endpoints da API. Utilize esses exemplos para verificar o funcionamento e os dados retornados pela API em diferentes operações.
+
