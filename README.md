@@ -8,6 +8,7 @@ Bem-vindo à API para gerenciamento de tarefas! Esta API permite que você crie,
 - [Instalação](#instalação)
 - [Endpoints](#endpoints)
 - [Exemplos de Uso](#exemplos-de-uso)
+- [Exemplos de Respostas da API de Lista de Tarefas](#exemplos-de-respostas-da-api-de-lista-de-tarefas)
 
 ## Recursos
 
