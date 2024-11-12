@@ -178,7 +178,7 @@ curl "https://api-todolist-rho.vercel.app/verificarusuario?email=joao@example.co
 curl "https://api-todolist-rho.vercel.app/login?email=joao@example.com&password=123456"
 ```
 
-# Exemplos de Respostas da API de Lista de Tarefas
+## Exemplos de Respostas da API de Lista de Tarefas
 
 Abaixo estão exemplos de respostas para cada endpoint da API.
 
